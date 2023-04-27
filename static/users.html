@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+      th {
+        width: 100px;
+      }
+    </style>
+
+</head>
+<body>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {{range .}}
+      <tr>
+        <td>{{.ID}}</td>
+        <td>{{.Name}}</td>
+        <td>{{.Email}}</td>
+        <td>{{.Password}}</td>
+        <form action="/update"><td><button type="submit" value={{.ID}} name="id">update</button></td></form>
+        <form action="/delete"><td><button type="submit" value={{.ID}} name="id">delete</button></td></form>
+      </tr>
+      {{end}}
+    </table>
+</body>
+</html>
